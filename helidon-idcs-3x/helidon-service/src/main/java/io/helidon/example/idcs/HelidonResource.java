@@ -37,7 +37,7 @@ public class HelidonResource {
     @Inject
     private JsonWebToken jwt;
 
-	@Authenticated(false)
+    @Authenticated(false)
     @GET
     @Produces(MediaType.APPLICATION_JSON)
     public JsonObject getDefaultMessage() {
@@ -47,25 +47,25 @@ public class HelidonResource {
     }
 
     @Authenticated(true)
-    @Path("/auth/wls")
+    @Path("/auth")
     @GET
     @Produces(MediaType.APPLICATION_JSON)
     public JsonObject authWLS() {
         try
         {
-			var bearerToken = jwt.getRawToken(); // Manually access raw bearer token
-			System.out.println("BearerToken: "+bearerToken);
-			return Json.createObjectBuilder()
-					.add("token", bearerToken)
-					.build();
+            var bearerToken = jwt.getRawToken(); // Manually access raw bearer token
+            System.out.println("BearerToken: "+bearerToken);
+            return Json.createObjectBuilder()
+                    .add("token", bearerToken)
+                    .build();
         }
         catch (Exception e)
         {
-			e.printStackTrace();
-			String stacktrace = ExceptionUtils.getStackTrace(e);
-			return Json.createObjectBuilder()
-					.add("token", stacktrace)
-					.build();
+            e.printStackTrace();
+            String stacktrace = ExceptionUtils.getStackTrace(e);
+            return Json.createObjectBuilder()
+                    .add("token", stacktrace)
+                    .build();
         }
     }
 }
