@@ -26,8 +26,6 @@ security:
         frontend-uri: "http://localhost:8080"
         audience: "https://idcs-573038cc6dee44ad8c4c975895a8f02e.identity.pint.oc9qadev.com:443"
         scope-audience: "http://localhost:8080/helidon"
-        logout-enabled: true
-        post-logout-uri: "/helidon/loggedout"
         redirect: true
         cookie-use: true
         header-use: true

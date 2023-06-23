@@ -46,23 +46,6 @@ public class HelidonResource {
                 .build();
     }
 
-    @Authenticated(false)
-	@Path("/noauth")
-    @GET
-    @Produces(MediaType.APPLICATION_JSON)
-    public JsonObject noAuth() throws Exception {
-    	return Json.createObjectBuilder().add("message","helidon "+helidonVersion+": No Auth Message").build();
-    }
-
-    @Authenticated(true)
-	@Path("/auth")
-    @GET
-    @Produces(MediaType.APPLICATION_JSON)
-    public JsonObject auth() throws Exception {
-    	return Json.createObjectBuilder().add("message","helidon "+helidonVersion+": Auth Message").build();
-    }
-
-
     @Authenticated(true)
     @Path("/auth/wls")
     @GET
@@ -83,13 +66,5 @@ public class HelidonResource {
 					.add("token", stacktrace)
 					.build();
         }
-    }
-
-    @Authenticated(false)
-	@Path("/loggedout")
-    @GET
-    @Produces(MediaType.APPLICATION_JSON)
-    public JsonObject userLogout() throws Exception {
-    	return Json.createObjectBuilder().add("message","helidon "+helidonVersion+": loggedout successfully").build();
     }
 }
