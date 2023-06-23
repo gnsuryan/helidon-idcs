@@ -1,0 +1,37 @@
+server:
+  port: 8080
+  host: 0.0.0.0
+
+idcs:
+  url: https://idcs-573038cc6dee44ad8c4c975895a8f02e.identity.pint.oc9qadev.com 
+  client-id: "e639a09bfde849deacde35dc30512754"
+  client-secret: "98da1636-f3f0-40a4-b08f-978718d56164"
+
+wls:
+  service:
+    url: http://home.us.oracle.com/results/release/src141200/
+
+helidon:
+  version: 2.6.0
+
+security:
+  providers:
+    - abac:
+    - oidc:
+        server-type: "idcs"
+        client-id: ${idcs.client-id}
+        client-secret: ${idcs.client-secret}
+        redirect: true
+        identity-uri: ${idcs.url}
+        frontend-uri: "http://localhost:8080"
+        audience: "https://idcs-573038cc6dee44ad8c4c975895a8f02e.identity.pint.oc9qadev.com:443"
+        scope-audience: "http://localhost:8080/helidon"
+        logout-enabled: true
+        post-logout-uri: "/helidon/loggedout"
+        redirect: true
+        cookie-use: true
+        header-use: true
+        propagate: true
+        outbound:
+          - name: "propagate-token"
+            hosts: [ "localhost" ]
