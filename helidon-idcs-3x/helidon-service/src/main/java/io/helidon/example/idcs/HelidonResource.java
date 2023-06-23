@@ -61,6 +61,7 @@ public class HelidonResource {
         }
         catch (Exception e)
         {
+			e.printStackTrace();
 			String stacktrace = ExceptionUtils.getStackTrace(e);
 			return Json.createObjectBuilder()
 					.add("token", stacktrace)
