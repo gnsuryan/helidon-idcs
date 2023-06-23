@@ -25,7 +25,7 @@ Access through browser http://localhost:8080/helidon
 Result :
 message	"helidon 2.6.0 service"
 
-Access through browser http://localhost:8080/helidon/auth/wls
+Access through browser http://localhost:8080/helidon/auth
 Result: 
 2023.06.23 12:28:23 FINEST io.helidon.security.integration.jersey.SecurityFilter Thread[helidon-server-5,5,server]: Filter completed (after authorization)
 BearerToken: null

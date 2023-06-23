@@ -34,7 +34,7 @@ Access through browser http://localhost:8080/helidon
 Result :
 message	"helidon 3.2.1 service"
 
-Access through browser http://localhost:8080/helidon/auth/wls
+Access through browser http://localhost:8080/helidon/auth
 Result:
 Token is printed
 
